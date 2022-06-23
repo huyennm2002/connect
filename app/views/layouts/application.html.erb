@@ -6,12 +6,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag "custom", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= javascript_importmap_tags%>
   </head>
 
   <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark bg-secondary">
   <li class="nav-item active text-white">
     <%= link_to 'FACEBOOK', root_path, class: 'text-white navbarColor01'%>
   </li>

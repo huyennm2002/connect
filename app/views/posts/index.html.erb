@@ -1,1 +1,8 @@
-<h1>Posts#index</h1>
+<div class = "containter">
+    <% if user_signed_in? %>
+    <div class = "d-flex justify-content-center">
+    <%=render 'form'%>
+    </div>
+    <%end%>
+    <%=render 'feed'%>
+</div>

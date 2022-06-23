@@ -45,6 +45,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'erubis'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'faker'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
