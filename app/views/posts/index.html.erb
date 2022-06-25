@@ -1,8 +1,23 @@
-<div class = "containter">
+
+
+
+<div class = "container d-flex col-sm justify-content-center">
+    <div></div>
     <% if user_signed_in? %>
-    <div class = "d-flex justify-content-center">
-    <%=render 'form'%>
+    <div class="main-container"> 
+        
+        <div class="align-item-center">
+            <%=render 'form' %>
+        </div>
+        <div>
+            <%=render 'feed' %>
+        </div>
     </div>
+    
+    <div>
+        <%= render 'friendreq'%>
+    </div>
+    <%else%>
+        <h2> Welcome to Fakebook! </h2>
     <%end%>
-    <%=render 'feed'%>
 </div>

@@ -1,0 +1,5 @@
+<% @random_users.each do |u|%>
+    <h6><%=u.name%></h6>
+    <%=button_to 'Add friend', {controller: 'friend_reqs', action: 'create', id: u.id}, class: "btn btn-secondary"%>
+    
+<%end%>

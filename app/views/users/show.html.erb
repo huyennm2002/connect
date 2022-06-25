@@ -1,0 +1,8 @@
+<h1><%=@current_user.name%></h1>
+
+<%if @current_user.posts.nil?%>
+ <%= "You have no posts"%>
+<%else%>
+ <%= render 'posts'%>
+<%end%>
+

@@ -1,21 +1,30 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def index
+    @post = Post.new
     @posts = Post.all
+    @users = User.all
     @random_posts = []
     6.times do 
       @random_posts << @posts[rand(@posts.length)]
     end
+    
+    @random_users = []
+    3.times do 
+      @random_users << @users[rand(@users.length)]
+    end
   end
   def show
-    @post = Post.find[params[:id]]
+    @post = Post.find(params[:id])
   end
 
   def new
-    @post = Article.new
+    @post = Post.new
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post
     else 
@@ -24,12 +33,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find[params[:id]]
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find[params[:id]]
-    if @post.update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
       redirect_to @post
     else 
       render :edit, status: :unprocessable_entity    

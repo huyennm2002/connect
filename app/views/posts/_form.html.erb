@@ -1,4 +1,5 @@
-<%= form_with model: @post, method: :post do |form| %>
+<div class = "justify-content-center">
+<%= form_with model: @post do |form| %>
 
     <div>
         <%= form.label :content %><br>
@@ -8,7 +9,7 @@
         <%# <% end %> %>
     </div>
 
-    <div>
+    <div class = "align-items-end">
         <%= form.label :status %><br>
         <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
     </div>
@@ -18,3 +19,4 @@
     </div>
     
 <% end %>
+</div>
