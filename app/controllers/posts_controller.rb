@@ -26,7 +26,8 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      redirect_to @post
+      flash[:notice] = "You have created a post"
+      redirect_back fallback_location:root_path
     else 
       render :new, status: :unprocessable_entity  
     end

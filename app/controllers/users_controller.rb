@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   # def search 
   #   if logged_in?
   #     key_word = params[:key]
-  #     @users = User.where("name LIKE ?")
+  #     @users = User.where("name LIKE ?", "$#{key_word}")
   #   else 
   #     flash[:error] = "You must sign in to search."
   # end
