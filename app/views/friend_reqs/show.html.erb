@@ -1,0 +1,9 @@
+<h3>Your friend requests</h3>
+
+<% @current_reqs.each do |req|%>
+    <%='From'%>
+    <%= req.from_user.name %>
+    <%= req.id%>
+    <%=button_to "Accept", accept_friend_req_path, params: {req_id: req.id}%>
+    <%=button_to "Delete", reject_friend_req_path, method: :delete, params: {req_id: req.id}%>
+<%end%>

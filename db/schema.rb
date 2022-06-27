@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_25_074436) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_27_095650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_25_074436) do
     t.datetime "updated_at", null: false
     t.index ["from_user_id"], name: "index_friend_reqs_on_from_user_id"
     t.index ["to_user_id"], name: "index_friend_reqs_on_to_user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "friend_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friends_on_friend_id"
+    t.index ["user_id"], name: "index_friends_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.bigint "friend_1_id", null: false
+    t.bigint "friend_2_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["friend_1_id"], name: "index_friendships_on_friend_1_id"
+    t.index ["friend_2_id"], name: "index_friendships_on_friend_2_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -64,6 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_25_074436) do
     t.date "birthday"
     t.string "location"
     t.text "other"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -71,5 +90,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_25_074436) do
   add_foreign_key "comments", "users"
   add_foreign_key "friend_reqs", "users", column: "from_user_id"
   add_foreign_key "friend_reqs", "users", column: "to_user_id"
+  add_foreign_key "friends", "users"
+  add_foreign_key "friends", "users", column: "friend_id"
+  add_foreign_key "friendships", "users", column: "friend_1_id"
+  add_foreign_key "friendships", "users", column: "friend_2_id"
   add_foreign_key "likes", "users"
 end

@@ -1,5 +1,15 @@
 <h1><%=@current_user.name%></h1>
 
+
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <p>
+    <label>My Avatar</label>
+    <%= image_tag(@user.avatar_url) if @user.avatars? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </p>
+  <%= f.submit "Upload photo"%>
+<% end %>
 <%if @current_user.posts.nil?%>
  <%= "You have no posts"%>
 <%else%>

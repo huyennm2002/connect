@@ -23,10 +23,10 @@
   </button>
   
   <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <%= form_with url: '/search ', method: :get do |form| %>
-      <%= form.text_field :username, placeholder: "Enter user's name" %>
-      <%= form.submit "Search" %>
+    <ul class="navbar-nav mr-auto">  
+      <%= form_with url: '/search', method: :get do |form| %>
+      <%= form.text_field :key, placeholder: "Enter user's name" %>
+      <%= form.submit "Search" %> 
     <% end %>
     </ul>
     <ul class="navbar-nav">
@@ -36,6 +36,9 @@
         </li>
         <li class="nav-item">
           <%= link_to "My Profile", current_user, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Friend Request', friend_req_path(current_user), class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>

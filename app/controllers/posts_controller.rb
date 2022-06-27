@@ -14,7 +14,9 @@ class PostsController < ApplicationController
     3.times do 
       @random_users << @users[rand(@users.length)]
     end
+
   end
+
   def show
     @post = Post.find(params[:id])
   end

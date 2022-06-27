@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   get 'posts/index'
   get 'users/index'
+  get '/search', to: 'users#search'
+
   devise_for :users, controllers: {
     session: 'users/sessions'
   }
+  # get 'search', 'user#search'
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -13,7 +16,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "posts#index"
 
-  resources :users
+  resources :users 
+
   resources :posts do 
     resources :comments, only: [:new, :edit]
   end 
@@ -22,12 +26,11 @@ Rails.application.routes.draw do
   
   resources :likes, only: [:create, :destroy]
 
-  resources :friend_reqs, only: :create do
+  resources :friend_reqs, only: [:create, :show] do
     member do
       post 'accept'
       delete 'reject'
     end
   end
-
       
 end

@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
         @comment = current_user.comments.build(comment_params)
         if @comment.save
             flash[:notice] = "You have commented"
-            redirect_back post_path(@post)
+            redirect_back fallback_location: post_path(@post)
         else
             flash[:alert] = "Cannot create comment"
         end

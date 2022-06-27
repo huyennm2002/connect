@@ -17,18 +17,22 @@ class UsersController < ApplicationController
   #   end
   # end
   
-  # def search 
-  #   if logged_in?
-  #     key_word = params[:key]
-  #     @users = User.where("name LIKE ?", "$#{key_word}")
-  #   else 
-  #     flash[:error] = "You must sign in to search."
-  # end
+
+
+  def search 
+      @searched_users = User.search_users(params[:key])
+      if @searched_users != nil 
+        flash[:notice] = "Found your users"
+      else 
+        flash[:error] = "No users found"
+      end
+  end
 
   def show
     @current_user = current_user
     @type_post = 'Post'
     @type_comment = 'Comment'
+    @current_request = current_user.sent_reqs.all
     if params[:id]
       @user = User.find(params[:id])
       respond_to do |format|
@@ -58,6 +62,6 @@ class UsersController < ApplicationController
 
   private  
   def user_params
-    params.require(:user).permit(:name, :email, :password, :birthday, :education, :location)
+    params.require(:user).permit(:name, :email, :password, :birthday, :education, :location, :avatar)
   end
 end

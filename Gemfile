@@ -48,6 +48,7 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'jsbundling-rails' 
 gem 'cssbundling-rails'
+gem 'carrierwave' #add avatar
 # Use Sass to process CSS
 gem "sassc-rails"
 
