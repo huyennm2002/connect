@@ -48,10 +48,16 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'jsbundling-rails' 
 gem 'cssbundling-rails'
+
+#upload avatar
+gem 'mini_magick'
 gem 'carrierwave' #add avatar
 # Use Sass to process CSS
 gem "sassc-rails"
 
+
+gem 'omniauth-facebook' #signin with facebook
+gem 'omniauth-rails_csrf_protection'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

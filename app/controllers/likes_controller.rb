@@ -1,8 +1,11 @@
 class LikesController < ApplicationController
+    def new
+       like = Like.new
+    end
+
     def create 
         # binding.pry
         if like_params[:user_id].to_i == current_user.id 
-            
             like = Like.create(like_params)
             flash[:notice] = "You have liked this post."        
             redirect_back fallback_location: root_path
@@ -12,6 +15,8 @@ class LikesController < ApplicationController
     def destroy 
         like = Like.find(params[:id])
         like.destroy if like.user == current_user
+        flash[:notice] = "Unliked"        
+        redirect_back fallback_location: root_path
     end
 
     private

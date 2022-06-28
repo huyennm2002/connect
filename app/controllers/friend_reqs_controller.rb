@@ -33,8 +33,8 @@ class FriendReqsController < ApplicationController
         @sender = @friend_req.from_user
         @current_user = current_user
         if @friend_req.to_user == current_user
-            @friendship1 = @current_user.friends.build(friend_id: @sender.id)
-            @friendship2 = @sender.friends.build(friend_id: current_user.id)
+            @friendship1 = @current_user.friendship.build(friend_id: @sender.id)
+            @friendship2 = @sender.friendship.build(friend_id: current_user.id)
             if @friendship1.save && @friendship2.save
                 flash[:notice] = "You got a new friend." 
                 @friend_req.destroy

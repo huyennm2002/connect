@@ -1,18 +1,28 @@
 <h1><%=@current_user.name%></h1>
 
 
-<%= form_for @user, html: { multipart: true } do |f| %>
+<%= form_for @user do |f| %>
   <p>
     <label>My Avatar</label>
-    <%= image_tag(@user.avatar_url) if @user.avatars? %>
+    <br>
+    <%=image_tag(@user.avatar_url) if @user.avatar? %>
     <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
   </p>
-  <%= f.submit "Upload photo"%>
+  <%= f.submit "Upload avatar"%>
+  
 <% end %>
+  <p> 
+    <%=button_to "Remove avatar", user_remove_avatar_path(current_user) if @current_user.avatar?%>
+  </p>
+
+
+<%=render 'posts/form' %>
+<br>
+<div class = "main-container">
 <%if @current_user.posts.nil?%>
  <%= "You have no posts"%>
 <%else%>
  <%= render 'posts'%>
 <%end%>
+</div>
 

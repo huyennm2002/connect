@@ -4,19 +4,23 @@ Rails.application.routes.draw do
   get '/search', to: 'users#search'
 
   devise_for :users, controllers: {
-    session: 'users/sessions'
+    session: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  # get 'search', 'user#search'
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    # delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+
   root "posts#index"
 
-  resources :users 
+  resources :users do
+    post 'remove_avatar'
+  end
 
   resources :posts do 
     resources :comments, only: [:new, :edit]
