@@ -3,16 +3,20 @@ Rails.application.routes.draw do
   post 'posts/index'
   get 'users/index'
   get '/search', to: 'users#search'
-
+  
+  
+  
   devise_for :users, controllers: {
-    # sessions: 'users/sessions',
-    registrations: 'users/registrations'
-    omniauth_callbacks: 'users/omniauth_callbacks'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    
   }
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
-    # delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+    # get "users/auth/:provider/callback" => "users/sessions#create"
+
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

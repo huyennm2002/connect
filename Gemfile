@@ -58,6 +58,7 @@ gem "sassc-rails"
 
 gem 'omniauth-facebook' #signin with facebook
 gem 'omniauth-rails_csrf_protection'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

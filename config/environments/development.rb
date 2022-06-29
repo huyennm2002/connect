@@ -68,7 +68,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'https' }
   config.action_mailer.delivery_method = :smtp
 
 
@@ -83,4 +83,5 @@ Rails.application.configure do
   }
   config.sass.inline_source_maps = true
   config.sass.line_comments = false
+  # config.hosts << "337d-123-16-89-232.ap.ngrok.io"
 end

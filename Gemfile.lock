@@ -1,6 +1,15 @@
 GIT
+  remote: https://github.com/omniauth/omniauth-github.git
+  revision: 1633cbb33e58e072136bf92c5abd43dbcb9d0429
+  branch: master
+  specs:
+    omniauth-github (2.0.0)
+      omniauth (~> 2.0)
+      omniauth-oauth2 (~> 1.7.1)
+
+GIT
   remote: https://github.com/plataformatec/devise.git
-  revision: f8d1ea90bc328012f178b8a6616a89b73f2546a4
+  revision: 6d32d2447cc0f3739d9732246b5a5bde98d9e032
   specs:
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -188,14 +197,14 @@ GEM
       rack-protection
     omniauth-facebook (9.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-oauth2 (1.8.0)
+    omniauth-oauth2 (1.7.3)
       oauth2 (>= 1.4, < 3)
-      omniauth (~> 2.0)
+      omniauth (>= 1.9, < 3)
     omniauth-rails_csrf_protection (1.0.1)
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
-    pg (1.4.0)
+    pg (1.4.1)
     popper_js (2.9.3)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -207,8 +216,8 @@ GEM
     rack (2.2.3.1)
     rack-protection (2.2.0)
       rack
-    rack-test (1.1.0)
-      rack (>= 1.0, < 3)
+    rack-test (2.0.2)
+      rack (>= 1.3)
     rails (7.0.3)
       actioncable (= 7.0.3)
       actionmailbox (= 7.0.3)
@@ -255,12 +264,12 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.2.1)
+    selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sprockets (4.0.3)
+    sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.4.2)
@@ -318,6 +327,7 @@ DEPENDENCIES
   jsbundling-rails
   mini_magick
   omniauth-facebook
+  omniauth-github!
   omniauth-rails_csrf_protection
   pg (~> 1.1)
   pry
