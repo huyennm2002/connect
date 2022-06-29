@@ -26,12 +26,12 @@ class CommentsController < ApplicationController
         # @comment = @post.comments.find(params[:commentable_id])
         @comment = Comment.find(params[:comment_id])
         if @comment.destroy
-            redirect_back post_path(@post)
+            # redirect_back post_path(@post)
             flash[:notice] = "You have delete this comment."
-            redirect_back current_user
+            redirect_back fallback_location:current_user
         else 
             flash[:error] = "Comment cannot be deleted"
-            redirect_back current_user
+            redirect_back fallback_location:current_user
         end
     end
 

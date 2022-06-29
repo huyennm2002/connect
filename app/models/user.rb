@@ -10,8 +10,8 @@ class User < ApplicationRecord
   has_many :submitted_likes, class_name: "Like", foreign_key: :user_id
   has_many :likes, as: :likeable
 
-  has_many :sent_reqs, class_name: "FriendReq", dependent: :destroy
-  has_many :received_reqs, class_name: "FriendReq", dependent: :destroy
+  has_many :sent_reqs, class_name: "FriendReq", dependent: :destroy, foreign_key: :from_user_id
+  has_many :received_reqs, class_name: "FriendReq", dependent: :destroy, foreign_key: :to_user_id
 
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
@@ -20,7 +20,9 @@ class User < ApplicationRecord
   validates_processing_of :avatar
   validate :avatar_size_validation
 
-  
+  TEMP_EMAIL_PREFIX = "change@me"
+  TEMP_EMAIL_REGEX = /\Achange@me/
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -39,6 +41,36 @@ class User < ApplicationRecord
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+  def self.find_for_oauth(auth, signed_in_resource = nil)
+    identity = Identity.find_for_oauth(auth)
+
+    user = signed_in_resource ? signed_in_resource : identity.user
+
+    if user.nil?
+      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
+      email = auth.info.email if email_is_verified
+      user = User.where(email: email).first if email
+
+      if user.nil?
+        user = User.new(
+          name: auth.extra.raw_info.name,
+          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+          password: "password"
+        )
+        user.save!
+      end
+    end
+
+    if identity.user != user
+      identity.user = user
+      identity.save!
+    end
+    user
+  end
+
+  def email_verified?
+    self.email && self.email !~ TEMP_EMAIL_REGEX
   end
 
 private

@@ -33,10 +33,6 @@ class UsersController < ApplicationController
       @user = current_user
     end
   end 
-
-  def create_post
-    redirect_to posts_path
-  end
   
   def likes
     @user = User.find(params[:user_id])

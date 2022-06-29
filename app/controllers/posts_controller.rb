@@ -3,20 +3,22 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.where('user_id IN (?)', current_user.friend_ids)
     @users = User.all
-    @random_posts = []
-    6.times do 
-      @random_posts << @posts[rand(@posts.length)]
+    if current_user
+      @posts = Post.where('user_id IN (?)', current_user.friend_ids) 
+      
+      @random_posts = []
+      6.times do 
+        @random_posts << @posts[rand(@posts.length)]
+      end
+      if @random_posts.last.nil?
+        @random_posts = current_user.posts
+      end
+      @random_users = []
+      3.times do 
+        @random_users << @users[rand(@users.length)]
+      end
     end
-    if @random_posts.last.nil?
-      @random_posts = current_user.posts
-    end
-    @random_users = []
-    3.times do 
-      @random_users << @users[rand(@users.length)]
-    end
-
   end
 
   def show

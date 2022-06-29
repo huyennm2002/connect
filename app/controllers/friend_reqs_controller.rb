@@ -21,7 +21,7 @@ class FriendReqsController < ApplicationController
     def show 
         @user = current_user
         @current_reqs = FriendReq.where(to_user_id: current_user.id)
-        if @current_reqs.nil?
+        if @current_reqs == []
             flash[:notice] = "You have no request"
             redirect_to root_path
         end

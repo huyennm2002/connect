@@ -1,24 +1,16 @@
-<% @current_user.posts.each do |p|%>
+<% @user.posts.each do |p|%>
     <div class="p-2 border border-dark">
-        <%=image_tag(@current_user.avatar_url) if @current_user.avatar? %>
+        <%=image_tag(@user.avatar_url) if @user.avatar? %>
         <%=p.content%>
         <ul>
         <%=p.likes.count%>
-        <%='Likes'%>    
-        <%# <%binding.pry%>
-        <%like = p.likes.where(user_id: current_user.id)%>
-        <%if like == []%>
+        <%='Likes'%>
+        <%like = p.likes.where(user_id: @user.id)%>
+        <%if like==[]%>
         <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}}%>
         <%else%> 
         <%= button_to 'Like', like_path(like), method: :delete %>
         <%end%>
-        </ul>
-        <ul>
-        <li><%= link_to "Edit", edit_post_path(p) %></li>
-        <li><%= link_to "Destroy", post_path(p), data: {
-                            turbo_method: :delete,
-                            turbo_confirm: "Are you sure?"
-                        } %></li>
         </ul>
             <%=p.comments.count%> 
             <%="Comments"%> 
