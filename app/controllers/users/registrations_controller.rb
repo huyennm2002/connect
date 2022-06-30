@@ -5,23 +5,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
   after_action :send_welcome_email, only: :create, if: -> { @user.persisted? }
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    super
+  end
 
   # POST /resource
-  # def create
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     # binding.pry
-  #     UserMailer.with(user: @user).welcome_email.deliver_now
-  #     flash[:notice] = "Your account was successfully created."
-  #     redirect_to root_path
-  #   else
-  #     flash[:alert]= "Unable to sign up!"
-  #     render :new
-  #   end
-  # end
+  def create
+   super
+  end
 
   # GET /resource/edit
   # def edit
@@ -68,10 +59,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  private
+  # private
 
-  def user_params
-    binding.pry
-    params.require(:user).permit()
+  # def user_params
+  #   binding.pry
+  #   params.require(:user).permit()
+  # end
+  def account_update_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :avatar, :education, :birthday, :location, :other)
   end
 end

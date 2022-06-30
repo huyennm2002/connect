@@ -1,22 +1,31 @@
 <h1><%=@user.name%></h1>
+<div class="row">
+  <div class="col">
+  <label>My Avatar</label>
+  <br>
+  <%=image_tag(@user.avatar_url) if @user.avatar? %>
 
-<label>My Avatar</label>
-<br>
-<%=image_tag(@user.avatar_url) if @user.avatar? %>
-
-<%if @user == current_user%>
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.file_field :avatar %>
-  </p>
-  <%= f.submit "Upload avatar"%>
-  <% end %>
-  <p> 
-    <%=button_to "Remove avatar", user_remove_avatar_path(current_user) if @current_user.avatar?%>
-  </p>
-<%end%>
-
-<%=render 'posts/form' %>
+  <%if @user == current_user%>
+  <%= form_for @user do |f| %>
+    <p>
+      <%= f.file_field :avatar %>
+    </p>
+    <%= f.submit "Upload avatar"%>
+    <% end %>
+    <p> 
+      <%=button_to "Remove avatar", user_remove_avatar_path(current_user) if @current_user.avatar?%>
+    </p>
+  <%end%>
+  <%=render 'posts/form' %>
+  </div>
+  <div class="col">
+  <h4><%= @user.name %></h4>
+  <p> Email: <%= @user.email%></p>
+  <p> DOB: <%= @user.birthday%></p>
+  <p> Location: <%= @user.location%></p>
+  <p> Education: <%= @user.education%></p>
+  </div>
+</div>
 <br>
 <div class = "main-container">
 <%if @user.posts.nil?%>
@@ -28,5 +37,5 @@
  <%=render 'other_posts'%>
 <%end%>
 <%end%>
-</div>
+
 

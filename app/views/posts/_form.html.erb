@@ -1,5 +1,5 @@
 <div class = "justify-content-center">
-<%= form_with model: @post, method: :post do |form| %>
+<%= form_for @post do |form| %>
     <div>
         <%= form.label :content %><br>
         <%= form.text_area :content, placeholder: "Share your thoughts" %><br>

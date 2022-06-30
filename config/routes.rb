@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
-    # get "users/auth/:provider/callback" => "users/sessions#create"
-
+    get '/users/auth/:provider/callback' => 'users/sessions#create'
+    # get 'sign_in', :to => 'devise/sessions#new', :as => :new_user_session
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -23,6 +23,19 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :education %><br />
+    <%= f.text_field :education, autofocus: true, autocomplete: "education" %>
+  </div>
+   <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
+  </div>
+   <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_field :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
 
   <div class="field">
     <%= f.label :avatar %><br />

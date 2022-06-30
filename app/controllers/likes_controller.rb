@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     end
 
     def destroy 
-        like = Like.find(params[:id])
+        like = Like.find(params[:id_like])
         like.destroy if like.user == current_user
         flash[:notice] = "Unliked"        
         redirect_back fallback_location: root_path

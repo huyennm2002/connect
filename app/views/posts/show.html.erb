@@ -1,0 +1,30 @@
+<div class="p-2 border border-dark">
+        <%=image_tag(@post.user.avatar_url) if @post.user.avatar? %>
+        <h6> <%=link_to @post.user.name, @post.user%></h6>
+        <%=@post.content%>
+        <ul>
+        <%=@post.likes.count%>
+        <%='Likes'%>    
+
+        <%like = @post.likes.where(user_id: current_user.id)%>
+        <%if like == []%>
+        <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}}%>
+        <%else%> 
+         <%=button_to 'Like', like_url(id_like: like.id), method: :delete %>
+        <%end%>
+        </ul>
+        <ul>
+        <li><%= link_to "Edit", edit_post_path(@post) %></li>
+        <li><%= link_to "Destroy", post_path(@post), data: {
+                            turbo_method: :delete,
+                            turbo_confirm: "Are you sure?"
+                        } %></li>
+        </ul>
+            <%=@post.comments.count%> 
+            <%="Comments"%> 
+            <%@post.comments.each do |com|%>
+            <%=render 'comments/comments', comment: com%>
+            <%end%>
+        <h6>Add a comment:</h6>
+        <%=render 'comments/form', {type: @type_post, id: @post.id}%>
+    </div>

@@ -8,9 +8,12 @@
     <ul>
     <%= p.likes.count%>
     <%='Likes'%>
-    <%= button_to likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}} do %>
-    <i class="fa fa-thumbs-up">Like</i>
-    <%end%>
+        <%like = p.likes.where(user_id: current_user.id).first%>
+        <%if like.nil?%>
+        <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}}%>
+        <%else%> 
+        <%=button_to 'Like', like_url(id_like: like.id, id: current_user.id), method: :delete %>
+        <%end%>
     </ul>
     <%="#{p.comments.count} Comments"%> 
         <%p.comments.each do |com|%>

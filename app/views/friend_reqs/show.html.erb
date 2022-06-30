@@ -1,9 +1,12 @@
 <h3>Your friend requests</h3>
 
 <% @current_reqs.each do |req|%>
+    <div class='border'>
     <%='From'%>
-    <%= req.from_user.name %>
-    <%= req.id%>
-    <%=button_to "Accept", accept_friend_req_path, params: {req_id: req.id}%>
-    <%=button_to "Delete", reject_friend_req_path, method: :delete, params: {req_id: req.id}%>
+    <%= link_to req.from_user.name, req.from_user%>
+    <div class='row'>
+    <%=button_to "Accept", accept_friend_req_path, params: {req_id: req.id}, class: "col-md-2"%>
+    <%=button_to "Delete", reject_friend_req_path, method: :delete, params: {req_id: req.id}, class: "col-md-2"%>
+    </div>
+    </div>
 <%end%>

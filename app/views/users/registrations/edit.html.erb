@@ -4,6 +4,11 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -30,12 +35,28 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-  
+
+   <div class="field">
+    <%= f.label :education %><br />
+    <%= f.text_field :education, autofocus: true, autocomplete: "education" %>
+  </div>
+   <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location, autofocus: true, autocomplete: "location" %>
+  </div>
+   <div class="field">
+    <%= f.label :birthday %><br />
+    <%= f.date_field :birthday, autofocus: true, autocomplete: "birthday" %>
+  </div>
+
    <div class="field">
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
   </div>
-
+  <div class="field">
+    <%= f.label :other %><br />
+    <%= f.text_field :other, autofocus: true, autocomplete: "other" %>
+  </div>
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

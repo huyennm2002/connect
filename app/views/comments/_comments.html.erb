@@ -10,9 +10,6 @@
 </p>
 <%if comment.user == current_user %>
 <p>
-    <%# <%= link_to "Delete Comment", comment_url(comment_id: comment.id), data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"}%>
     <%=button_to 'Delete comment', comment_url(comment_id: comment.id), method: :delete %>
 </p>
 <%end%>
