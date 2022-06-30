@@ -24,7 +24,6 @@ class User < ApplicationRecord
   validate :avatar_size_validation
 
   def self.from_omniauth(auth)
-    # binding.pry
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
       
       user.email = auth.info.email 
@@ -34,7 +33,7 @@ class User < ApplicationRecord
       # If you are using confirmable and the provider(s) you use validate emails, 
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
-      binding.pry
+      # binding.pry
     end
   end
 

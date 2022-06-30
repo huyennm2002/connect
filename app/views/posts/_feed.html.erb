@@ -17,7 +17,7 @@
     </ul>
     <%="#{p.comments.count} Comments"%> 
         <%p.comments.each do |com|%>
-        <%# <%=render 'comments/comments', comment: com%> %>
+        <%=render 'comments/comments', comment: com, id: com.user.id%>
         <%end%>
     <h5>Add a comment:</h5>
     <%=render 'comments/form', {type: "Post", id: p.id}%>

@@ -10,6 +10,6 @@
 </p>
 <%if comment.user == current_user %>
 <p>
-    <%=button_to 'Delete comment', comment_url(comment_id: comment.id), method: :delete %>
+    <%=button_to 'Delete comment', comment_url(comment_id: comment.id, id: comment.user.id), method: :delete %>
 </p>
 <%end%>
