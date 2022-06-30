@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
 
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :trackable ,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github] 
 
@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
   
   mount_uploader :avatar, AvatarUploader #upload avatar
+
+  validates_confirmation_of :password 
   validates_processing_of :avatar
   validate :avatar_size_validation
 

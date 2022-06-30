@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    before_action :authenticate_user!, except: [:about, :not_found, :internal_server, :unprocessable]
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     def configure_permitted_parameters
