@@ -1,15 +1,21 @@
-<p>
-  <strong>
-  <%= comment.user.name %>
-  </strong>
-</p>
+<div class='border '>
 
-<p>
-  <strong>Comment:</strong>
+  <strong>
+  <%=link_to comment.user.name, comment.user %>
+  </strong>
+
   <%= comment.body %>
-</p>
-<%if comment.user == current_user %>
-<p>
-    <%=button_to 'Delete comment', comment_url(comment_id: comment.id, id: comment.user.id), method: :delete %>
-</p>
-<%end%>
+  <li> (<%=comment.likes.count%> Likes)</li>
+  <div class="p-2" style="background-color: #eee;">
+    <%like = comment.likes.where(user_id: current_user.id).first%>
+    <%if like.nil?%>
+    <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: comment.id, likable_type: 'Comment'}}, class: "btn-sm btn btn-outline-primary float-start"%>
+    <%else%>
+    <%=button_to 'Like', like_url(id_like: like.id, id:comment.user.id), method: :delete, class: "btn-sm btn btn-outline-primary float-start" %>
+    <%end%>
+    <%if comment.user == current_user %>
+        <%=button_to 'Delete comment', comment_url(comment_id: comment.id, id: comment.user.id), method: :delete, class: "btn-sm btn btn-outline-primary float-right"%>
+    <%end%>
+  </div>
+</div>
+<br>

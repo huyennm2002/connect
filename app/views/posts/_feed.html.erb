@@ -1,7 +1,6 @@
 
 <% @random_posts.each do |p|%>
-<div class="p-2 border border-dark">
-
+<div class="p-2 border border-dark" >
     <h4><%= link_to p.user.name, p.user%> </h4>
     <%=image_tag(p.user.avatar_url) if p.user.avatar? %>
     <%= p.content%>
@@ -19,8 +18,10 @@
         <%p.comments.each do |com|%>
         <%=render 'comments/comments', comment: com, id: com.user.id%>
         <%end%>
+    <br>
     <h5>Add a comment:</h5>
     <%=render 'comments/form', {type: "Post", id: p.id}%>
 </div>
+
 <br>
 <%end%>
