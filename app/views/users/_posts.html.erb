@@ -15,15 +15,15 @@
         <%end%>
         </ul>
         <ul>
-        <li><%= link_to "Edit", edit_post_path(p), class:"btn btn-outline-primary" %></li>
-       
-        <li> <%=button_to 'Delete', post_url(id: p.id), method: :delete, class: "btn btn-secondary"%></li>
+        <%= link_to "Edit", edit_post_path(p), class:"btn btn-outline-primary" %>
+        <span>
+        <%=button_to 'Delete', post_url(id: p.id), method: :delete, class: "btn btn-secondary"%>
         </ul>
-            <%=p.comments.count%> 
-            <%="Comments"%> 
-            <%p.comments.each do |com|%>
-            <%=render 'comments/comments', comment: com%>
-            <%end%>
+        <%=p.comments.count%> 
+        <%="Comments"%> 
+        <%p.comments.each do |com|%>
+        <%=render 'comments/comments', comment: com%>
+        <%end%>
         <h6>Add a comment:</h6>
         <%=render 'comments/form', {type: @type_post, id: p.id}%>
     </div>

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   
 
-  devise :database_authenticatable, :registerable, :trackable ,
+  devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook github] 
 
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   
   mount_uploader :avatar, AvatarUploader #upload avatar
 
-  validates_confirmation_of :password 
+  
   validates_processing_of :avatar
   validate :avatar_size_validation
 

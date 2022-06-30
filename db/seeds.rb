@@ -10,25 +10,25 @@
 # 60.times do {
 #     @users = User.create([{ name}])
 # }
-User.destroy_all
-def user_params
-    {
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        password: 'pass_word',
-        reset_password_token: nil, 
-        reset_password_sent_at: nil, 
-        remember_created_at: nil,
-        location: Faker::Address.state,
-        birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
-        education: Faker::University.name,
-        other: Faker::Quote.famous_last_words
-    }
-end
+# User.destroy_all
+# def user_params
+#     {
+#         name: Faker::Name.name,
+#         email: Faker::Internet.email,
+#         password: 'pass_word',
+#         reset_password_token: nil, 
+#         reset_password_sent_at: nil, 
+#         remember_created_at: nil,
+#         location: Faker::Address.state,
+#         birthday: Faker::Date.birthday(min_age: 18, max_age: 65),
+#         education: Faker::University.name,
+#         other: Faker::Quote.famous_last_words
+#     }
+# end
 
-50.times do 
-    User.create!(user_params)
-end   
+# 50.times do 
+#     User.create!(user_params)
+# end   
 
 @users = User.all
 
