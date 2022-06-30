@@ -8,17 +8,15 @@
 
         <%like = @post.likes.where(user_id: current_user.id)%>
         <%if like == []%>
-        <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}}%>
+        <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: @post.id, likable_type: 'Post'}}%>
         <%else%> 
-         <%=button_to 'Like', like_url(id_like: like.id), method: :delete %>
+         <%=button_to 'Like', like_url(id_like: like.id, id: @post.user.id), method: :delete %>
         <%end%>
         </ul>
         <ul>
-        <li><%= link_to "Edit", edit_post_path(@post) %></li>
-        <li><%= link_to "Destroy", post_path(@post), data: {
-                            turbo_method: :delete,
-                            turbo_confirm: "Are you sure?"
-                        } %></li>
+        <li><%= link_to "Edit", edit_post_path(@post), class:"btn btn-outline-primary" %></li>
+       
+        <li> <%=button_to 'Delete', post_url(id: @post.id), method: :delete, class: "btn btn-secondary"%></li>
         </ul>
             <%=@post.comments.count%> 
             <%="Comments"%> 

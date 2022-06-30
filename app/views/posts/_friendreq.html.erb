@@ -1,5 +1,10 @@
 <% @random_users.each do |u|%>
-    <h6><%=link_to u.name, u%></h6>
-    <%=button_to 'Add friend', {controller: 'friend_reqs', action: 'create', id: u.id}, class: "btn btn-secondary" %>
-    
+        <h6><%=link_to u.name, u%></h6>
+        <%current_req = FriendReq.where(from_user_id: current_user.id, to_user_id: u.id)%>
+        <%if current_req == [] && !current_user.friends.include?(u)%>
+            <%=button_to 'Add friend', {controller: 'friend_reqs', action: 'create', id: u.id}, class: "btn btn-secondary" %>
+        <%else%>
+            <%='You have already added this friend.'%>
+        <%end%>
+ 
 <%end%>

@@ -15,11 +15,9 @@
         <%end%>
         </ul>
         <ul>
-        <li><%= link_to "Edit", edit_post_path(p) %></li>
-        <li><%= link_to "Destroy", post_path(p), data: {
-                            turbo_method: :delete,
-                            turbo_confirm: "Are you sure?"
-                        } %></li>
+        <li><%= link_to "Edit", edit_post_path(p), class:"btn btn-outline-primary" %></li>
+       
+        <li> <%=button_to 'Delete', post_url(id: p.id), method: :delete, class: "btn btn-secondary"%></li>
         </ul>
             <%=p.comments.count%> 
             <%="Comments"%> 
