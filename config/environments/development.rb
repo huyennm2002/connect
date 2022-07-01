@@ -73,14 +73,14 @@ Rails.application.configure do
 
 
   # SMTP settings for gmail
-  # config.action_mailer.smtp_settings = {
-  #   :address              => "smtp.gmail.com",
-  #   :port                 => 587,
-  #   :user_name            => 'huyennm1104@gmail.com',
-  #   :password             => 'trjjmfacqnfdgnoc',
-  #   :authentication       => "plain",
-  #   :enable_starttls_auto => true
-  # }
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :user_name            => 'huyennm1104@gmail.com',
+    :password             => 'trjjmfacqnfdgnoc',
+    :authentication       => "plain",
+    :enable_starttls_auto => true
+  }
   config.sass.inline_source_maps = true
   config.sass.line_comments = false
   # config.hosts << "337d-123-16-89-232.ap.ngrok.io"
