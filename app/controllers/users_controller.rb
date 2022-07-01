@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def update 
-    binding.pry
     if current_user.update(user_params)
       flash[:notice] = "You have uploaded your avatar."
     else 
