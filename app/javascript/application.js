@@ -4,3 +4,4 @@
 
 //= require jquery
 //= require jquery_ujs
+//= import * as bootstrap from "bootstrap"
