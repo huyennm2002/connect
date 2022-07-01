@@ -33,9 +33,9 @@ class Users::SessionsController < Devise::SessionsController
     # end
   end
 
-  def destroy
-    super
-    session[:user_id] = nil
-    redirect_to root_url
-  end
+  # def destroy
+  #   super
+  #   session[:user_id] = nil
+  #   redirect_to root_url
+  # end
 end
