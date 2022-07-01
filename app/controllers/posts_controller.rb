@@ -5,14 +5,15 @@ class PostsController < ApplicationController
     @post = Post.new
     @users = User.all
     if current_user
-      @posts = Post.where('user_id IN (?)', current_user.friend_ids) 
+      @posts = Post.where('user_id IN (?)', current_user.friend_ids).or(Post.where(user_id: current_user.id))
       
       @random_posts = []
-      6.times do 
-        @random_posts << @posts[rand(@posts.length)]
-      end
-      if @random_posts.last.nil?
-        @random_posts = current_user.posts
+      if @posts.length > 6
+        6.times do 
+          @random_posts << @posts[rand(@posts.length)]
+        end
+      else 
+        @random_posts = @posts
       end
       @random_users = []
       3.times do 
