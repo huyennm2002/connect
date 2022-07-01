@@ -7,10 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-60.times do {
-    @users = User.create([{ name}])
-}
 
+# User.destroy_all
 def user_params
     {
         name: Faker::Name.name,
