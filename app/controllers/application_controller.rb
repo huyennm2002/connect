@@ -20,10 +20,6 @@ class ApplicationController < ActionController::Base
     end
 
     def send_welcome_email 
-        # binding.pry
         UserMailer.with(user: @user).welcome_email.deliver_now
     end
-   
-
-
 end

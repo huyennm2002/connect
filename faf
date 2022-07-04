@@ -1,0 +1,28 @@
+=> [32m#<ImagesUploader:0x00007f6848335c40[0m
+ @cache_id[32m=[0m[1;36mnil[0m,
+ @file[32m=[0m
+  [32m#<CarrierWave::SanitizedFile:0x00007f6848334ed0[0m
+   @content[32m=[0m[1;36mnil[0m,
+   @content_type[32m=[0m[1;36mnil[0m,
+   @file[32m=[0m
+    [31m[1;31m"[0m[31m/home/huyennm/RoR Bootcamp/rails/odin-facebook/public/uploads/post/images/222/images.jpeg[1;31m"[0m[31m[0m,
+   @original_filename[32m=[0m[1;36mnil[0m[32m>[0m,
+ @filename[32m=[0m[1;36mnil[0m,
+ @identifier[32m=[0m[31m[1;31m"[0m[31mimages.jpeg[1;31m"[0m[31m[0m,
+ @model[32m=[0m
+  [32m#<Post:0x00007f6848287dc0[0m
+   id: [1;34m222[0m,
+   content: [31m[1;31m"[0m[31mhello[1;31m"[0m[31m[0m,
+   user_id: [1;34m261[0m,
+   created_at: [1;34;4mMon[0m, [1;34m04[0m [1;34;4mJul[0m [1;34m2022[0m [1;34m08[0m:[1;34m04[0m:[1;35m44.859335000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+   updated_at: [1;34;4mMon[0m, [1;34m04[0m [1;34;4mJul[0m [1;34m2022[0m [1;34m08[0m:[1;34m04[0m:[1;35m44.859335000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+   images: [[31m[1;31m"[0m[31mimages.jpeg[1;31m"[0m[31m[0m][32m>[0m,
+ @mounted_as[32m=[0m[33m:images[0m,
+ @staged[32m=[0m[1;36mfalse[0m,
+ @storage[32m=[0m
+  [32m#<CarrierWave::Storage::File:0x00007f6848335880[0m
+   @cache_called[32m=[0m[1;36mnil[0m,
+   @uploader[32m=[0m[32m#<ImagesUploader:0x00007f6848335c40[0m ...[32m>[0m[32m>[0m,
+ @versions[32m=[0m{},
+ @versions_to_cache[32m=[0m[1;36mnil[0m,
+ @versions_to_store[32m=[0m[1;36mnil[0m[32m>[0m

@@ -30,11 +30,8 @@
 <%if @user.posts.nil?%>
  <%= "You have no posts"%>
 <%else%>
-  <%if @user == current_user%>
- <%= render 'posts'%>
- <%else%>
- <%=render 'other_posts'%>
-<%end%>
+ <%= render 'posts/feed', :@random_posts => @user.posts%>
+
 <%end%>
 
 

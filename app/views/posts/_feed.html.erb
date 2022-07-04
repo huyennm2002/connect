@@ -1,15 +1,18 @@
-
 <%= 'No posts available to show!' if @random_posts[0].nil? %>
 <% @random_posts.each do |p|%>
-    
     <%if !p.nil?%>
     <div class="p-2 border border-dark" >
         <h4><%= link_to p.user.name, p.user%> </h4>
         <%=image_tag(p.user.avatar_url) if p.user.avatar? %>
         <%= p.content%>
         <ul>
-        <%= p.likes.count%>
-        <%='Likes'%>
+        <div>
+        <% p.images.each do |i|%>
+
+        <%= image_tag(i.url)%>
+        <%end%>
+        </div>
+        <%="#{p.likes.count} Likes"%>
             <%like = p.likes.where(user_id: current_user.id).first%>
             <%if like.nil?%>
             <%= button_to 'Like', likes_path, params: {like: {user_id: current_user.id, likable_id: p.id, likable_type: 'Post'}}%>
@@ -17,6 +20,14 @@
             <%=button_to 'Like', like_url(id_like: like.id, id: current_user.id), method: :delete %>
             <%end%>
         </ul>
+
+        <%if p.user == current_user%>
+        <ul>
+        <%= link_to "Edit", edit_post_path(p), class:"btn btn-outline-primary" %>
+        <span>
+        <%=button_to 'Delete', post_url(id: p.id), method: :delete, class: "btn btn-secondary"%>
+        </ul>
+        <%end%>
         <%="#{p.comments.count} Comments"%> 
             <%p.comments.each do |com|%>
             <%=render 'comments/comments', comment: com, id: com.user.id%>

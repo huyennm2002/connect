@@ -4,6 +4,9 @@
         <%= form.label :content %><br>
         <%= form.text_area :content, placeholder: "Share your thoughts" %><br>
     </div>
+    <div>
+        <%= form.file_field :images, multiple:true %><br>
+    </div>
 
     <div class = "align-items-end">
         <%= form.label :status %><br>
