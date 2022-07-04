@@ -81,6 +81,15 @@ Rails.application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.mailgun.org",
+  #     :port                 => 587,
+  #     :user_name            => 'postmaster@sandbox0a19474f12b34a158085bf4e8a014ad7.mailgun.org',
+  #     :password             => '52006f29798e354fbf2a3bb100380b3f-77985560-1a88228a',
+  #     :authentication       => "plain",
+  #     :enable_starttls_auto => true
+  # }
+
   config.sass.inline_source_maps = true
   config.sass.line_comments = false
   # config.hosts << "337d-123-16-89-232.ap.ngrok.io"

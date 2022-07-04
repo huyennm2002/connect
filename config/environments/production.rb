@@ -104,4 +104,13 @@ Rails.application.configure do
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
+
+#   config.action_mailer.smtp_settings = {
+#     :address              => "smtp.mailgun.org",
+#     :port                 => 587,
+#     :user_name            => 'postmaster@sandbox0a19474f12b34a158085bf4e8a014ad7.mailgun.org',
+#     :password             => '52006f29798e354fbf2a3bb100380b3f-77985560-1a88228a',
+#     :authentication       => "plain",
+#     :enable_starttls_auto => true
+# }
 end
