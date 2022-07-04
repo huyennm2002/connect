@@ -15,7 +15,8 @@
       <%=button_to "Remove avatar", user_remove_avatar_path(current_user) if @current_user.avatar?%>
     </p>
   <%end%>
-  <%=render 'posts/form' %>
+
+  <%=render 'posts/form' if @user == current_user%>
   </div>
   <div class="col">
   <h4><%= @user.name %></h4>
@@ -28,7 +29,7 @@
 <br>
 <div class = "main-container">
 <%if @user.posts.nil?%>
- <%= "You have no posts"%>
+ <%= "#{@user.name} has no posts"%>
 <%else%>
  <%= render 'posts/feed', :@random_posts => @user.posts%>
 

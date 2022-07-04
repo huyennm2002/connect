@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @users = User.all
+    @rec_users = User.where.not(id: current_user.id)
     if current_user
       @posts = Post.where('user_id IN (?)', current_user.friend_ids).or(Post.where(user_id: current_user.id))
       
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       end
       @random_users = []
       3.times do 
-        @random_users << @users[rand(@users.length)]
+        @random_users << @rec_users[rand(@rec_users.length)]
       end
     end
   end

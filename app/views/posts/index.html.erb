@@ -1,12 +1,8 @@
-
-
-
 <div class = "container d-flex justify-content-between">
     <% if user_signed_in? %>
     <div> 
     <br>
     </div>
-    
     <div class="main-container w-75 p-2" > 
         <%=image_tag(current_user.avatar_url) if current_user.avatar? %>
         <div class="align-item-center">
@@ -16,7 +12,6 @@
         <%=render 'feed' %>
       
     </div>
-    
     <div class = "ml-auto p-2">
         <%= render 'friendreq'%>
     </div>

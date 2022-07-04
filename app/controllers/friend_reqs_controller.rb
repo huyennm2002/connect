@@ -6,7 +6,6 @@ class FriendReqsController < ApplicationController
     end
 
     def create 
-        # binding.pry
         friend_req = FriendReq.new(from_user_id: current_user.id, to_user_id: params[:id])
         if friend_req.save
             flash[:notice] = "Your friend request was successfully sent!"
@@ -28,7 +27,7 @@ class FriendReqsController < ApplicationController
     end
 
     def accept
-        # binding.pry
+
         @friend_req = FriendReq.find(params[:req_id])
         @sender = @friend_req.from_user
         @current_user = current_user

@@ -21,9 +21,13 @@ class User < ApplicationRecord
   
   mount_uploader :avatar, AvatarUploader #upload avatar
 
-  
-  validates_processing_of :avatar
-  validate :avatar_size_validation
+  # scope :recommended_users, (lambda do |user|
+  #   return all unless user.present?
+  #   where.not(id: user.id)
+  # end)
+  # scope :recommended_users, -> {where.not(id: user.id)}
+  # validates_processing_of :avatar
+  # validate :avatar_size_validation
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
