@@ -3,8 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @rec_users = User.where.not(id: current_user.id)
     if current_user
+      @rec_users = User.where.not(id: current_user.id)
       @posts = Post.where('user_id IN (?)', current_user.friend_ids).or(Post.where(user_id: current_user.id))
       
       @random_posts = []
