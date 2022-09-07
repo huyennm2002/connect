@@ -1,0 +1,18 @@
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+/home/ubuntu/.rbenv/versions/3.0.3/bin/ruby -I /home/ubuntu/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220904-93722-288z94.rb extconf.rb
+checking for u_int8_t... yes
+checking for sys/cdefs.h... yes
+creating Makefile
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= clean
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\=
+compiling sha2init.c
+compiling sha2.c
+linking shared-object digest/sha2.so
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/digest-3.1.0/ext/digest/sha2
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 sha2.so ./.gem.20220904-93722-ekjq66/digest

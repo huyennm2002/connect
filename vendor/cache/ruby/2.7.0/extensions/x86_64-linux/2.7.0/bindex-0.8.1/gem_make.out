@@ -1,0 +1,15 @@
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/home/ubuntu/.rbenv/versions/2.7.0/bin/ruby -I /home/ubuntu/.rbenv/versions/2.7.0/lib/ruby/2.7.0 -r ./siteconf20220904-109655-us89vb.rb extconf.rb
+creating Makefile
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20220904-109655-kovm15/skiptrace/internal

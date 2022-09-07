@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "3.0.3"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
@@ -53,8 +53,7 @@ gem 'cssbundling-rails'
 gem 'mini_magick'
 gem 'carrierwave' #add avatar
 # Use Sass to process CSS
-gem "sassc-rails"
-
+gem 'sassc-rails'
 
 gem 'omniauth-facebook' #signin with facebook
 gem 'omniauth-rails_csrf_protection'
