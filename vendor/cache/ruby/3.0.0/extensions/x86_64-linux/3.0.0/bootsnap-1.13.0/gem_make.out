@@ -1,0 +1,15 @@
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+/home/ubuntu/.rbenv/versions/3.0.3/bin/ruby -I /home/ubuntu/.rbenv/versions/3.0.3/lib/ruby/3.0.0 -r ./siteconf20220904-93722-oacter.rb extconf.rb
+creating Makefile
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.so
+
+current directory: /home/ubuntu/app/connect/vendor/cache/ruby/3.0.0/gems/bootsnap-1.13.0/ext/bootsnap
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220904-93722-3dyr1n/bootsnap
