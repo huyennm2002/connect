@@ -93,4 +93,5 @@ Rails.application.configure do
   config.sass.inline_source_maps = true
   config.sass.line_comments = false
   # config.hosts << "337d-123-16-89-232.ap.ngrok.io"
+  config.hosts << "my-connect.link"
 end
